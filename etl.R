@@ -5,14 +5,15 @@ library(writexl)
 library(readxl)
 library(stringr)
 
-setwd("P:/SUPERINTENDÊNCIA ADMINISTRATIVA/SAPOFC/SERGIO/3.Planilhas_Excel/3.extrator")
+getwd()
+setwd("E:/scripts/3.Planilhas_Excel/3.extract")
 
-dados2023 <- read_excel("P:/SUPERINTENDÊNCIA ADMINISTRATIVA/SAPOFC/SERGIO/3.Planilhas_Excel/3.extrator/despesa_empenhado_liquidado_pago_2023.xlsx")
-dados2024 <- read_excel("P:/SUPERINTENDÊNCIA ADMINISTRATIVA/SAPOFC/SERGIO/3.Planilhas_Excel/3.extrator/despesa_empenhado_liquidado_pago_2024.xlsx")
-dados2025 <- read_excel("P:/SUPERINTENDÊNCIA ADMINISTRATIVA/SAPOFC/SERGIO/3.Planilhas_Excel/3.extrator/despesa_empenhado_liquidado_pago_2025.xlsx")
+dados2023 <- read_excel("E:/scripts/3.extract/despesa_empenhado_liquidado_pago_2023.xlsx")
+dados2024 <- read_excel("E:/scripts/3.extract/despesa_empenhado_liquidado_pago_2023.xlsx")
+dados2025 <- read_excel("E:/scripts/3.extract/despesa_empenhado_liquidado_pago_2023.xlsx")
 
 arquivos <- list.files(
-  path = "P:/SUPERINTENDÊNCIA ADMINISTRATIVA/SAPOFC/SERGIO/3.Planilhas_Excel/3.extrator",
+  path = "E:/scripts/3.extract/despesa_empenhado_liquidado_pago_2023.xlsx/3.extract",
   pattern = "\\.xlsx$",
   full.names = TRUE
 )
@@ -24,7 +25,7 @@ dados_consolidados <- arquivos %>%
 
 write_xlsx(
   dados_consolidados,
-  "P:/SUPERINTENDÊNCIA ADMINISTRATIVA/SAPOFC/SERGIO/3.Planilhas_Excel/3.extrator/despesa_empenhado_liquidado_pago_2023-2025.xlsx"
+  "E:/scripts/3.extract/despesa_empenhado_liquidado_pago_2023.xlsx"
 )
 
 names(dados2023)
