@@ -1,3 +1,10 @@
+install.packages("dplyr")
+install.packages("purrr")
+install.packages("janitor")
+install.packages("writexl")
+install.packages("readxl")
+install.packages("stringr")
+
 library(dplyr)
 library(purrr)
 library(janitor)
@@ -6,14 +13,15 @@ library(readxl)
 library(stringr)
 
 getwd()
-setwd("E:/scripts/3.Planilhas_Excel/3.extract")
+setwd("E:/Setur/planilhas")
 
-dados2023 <- read_excel("E:/scripts/3.extract/despesa_empenhado_liquidado_pago_2023.xlsx")
-dados2024 <- read_excel("E:/scripts/3.extract/despesa_empenhado_liquidado_pago_2024.xlsx")
-dados2025 <- read_excel("E:/scripts/3.extract/despesa_empenhado_liquidado_pago_2025.xlsx")
+dados2022 <- read_excel("E:/Setur/planilhas/despesa_empenhado_liquidado_pago_2022_siafe_gerado_em_19-09-2025.xlsx")
+dados2023 <- read_excel("E:/Setur/planilhas/despesa_empenhado_liquidado_pago_2023_siafe_gerado_em_19-09-2025.xlsx")
+dados2024 <- read_excel("E:/Setur/planilhas/despesa_empenhado_liquidado_pago_2024_siafe_gerado_em_19-09-2025.xlsx")
+dados2025 <- read_excel("E:/Setur/planilhas/despesa_empenhado_liquidado_pago_2025_siafe_gerado_em_14-01-2026.xlsx")
 
 arquivos <- list.files(
-  path = "E:/scripts/3.extract",
+  path = "E:/Setur/planilhas",
   pattern = "\\.xlsx$",
   full.names = TRUE
 )
@@ -25,7 +33,7 @@ dados_consolidados <- arquivos %>%
 
 write_xlsx(
   dados_consolidados,
-  "E:/scripts/3.extract/despesa_empenhado_liquidado_pago.xlsx"
+  "E:/Setur/planilhas/despesa_empenhado_liquidado_pago.xlsx"
 )
 
 names(dados2023)
