@@ -9,11 +9,11 @@ getwd()
 setwd("E:/scripts/3.Planilhas_Excel/3.extract")
 
 dados2023 <- read_excel("E:/scripts/3.extract/despesa_empenhado_liquidado_pago_2023.xlsx")
-dados2024 <- read_excel("E:/scripts/3.extract/despesa_empenhado_liquidado_pago_2023.xlsx")
-dados2025 <- read_excel("E:/scripts/3.extract/despesa_empenhado_liquidado_pago_2023.xlsx")
+dados2024 <- read_excel("E:/scripts/3.extract/despesa_empenhado_liquidado_pago_2024.xlsx")
+dados2025 <- read_excel("E:/scripts/3.extract/despesa_empenhado_liquidado_pago_2025.xlsx")
 
 arquivos <- list.files(
-  path = "E:/scripts/3.extract/despesa_empenhado_liquidado_pago_2023.xlsx/3.extract",
+  path = "E:/scripts/3.extract",
   pattern = "\\.xlsx$",
   full.names = TRUE
 )
