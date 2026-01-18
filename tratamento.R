@@ -13,7 +13,7 @@ library(readxl)
 library(stringr)
 
 getwd()
-setwd("path")
+setwd("caminho")
 tratar_mes <- function(df) {
   df %>%
     mutate(
@@ -38,13 +38,13 @@ tratar_mes <- function(df) {
 }
 
 
-dados2022 <- read_excel("path")
-dados2023 <- read_excel("path")
-dados2024 <- read_excel("path")
-dados2025 <- read_excel("path")
+dados2022 <- read_excel("caminho/.arquivo")
+dados2023 <- read_excel("caminho/.arquivo")
+dados2024 <- read_excel("caminho/.arquivo")
+dados2025 <- read_excel("caminho/.arquivo")
 
 arquivos <- list.files(
-  path = "P:/SUPERINTENDÊNCIA ADMINISTRATIVA/SAPOFC/SERGIO/3.Planilhas_Excel/3.extract",
+  path = "caminho",
   pattern = "\\.xlsx$",
   full.names = TRUE
 )
@@ -57,7 +57,7 @@ dados_consolidados <- arquivos %>%
 
 write_xlsx(
   dados_consolidados,
-  "path/despesa_empenhado_liquidado_pago.xlsx"
+  "caminho/despesa_empenhado_liquidado_pago.xlsx"
 )
 
 
