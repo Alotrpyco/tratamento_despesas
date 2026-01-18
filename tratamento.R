@@ -13,7 +13,7 @@ library(readxl)
 library(stringr)
 
 getwd()
-setwd("P:/SUPERINTENDÊNCIA ADMINISTRATIVA/SAPOFC/SERGIO/3.Planilhas_Excel/3.extract")
+setwd("path")
 tratar_mes <- function(df) {
   df %>%
     mutate(
@@ -38,10 +38,10 @@ tratar_mes <- function(df) {
 }
 
 
-dados2022 <- read_excel("P:/SUPERINTENDÊNCIA ADMINISTRATIVA/SAPOFC/SERGIO/3.Planilhas_Excel/3.extract/despesa_empenhado_liquidado_pago_2022_siafe_gerado_em_19-09-2025.xlsx")
-dados2023 <- read_excel("P:/SUPERINTENDÊNCIA ADMINISTRATIVA/SAPOFC/SERGIO/3.Planilhas_Excel/3.extract/despesa_empenhado_liquidado_pago_2023_siafe_gerado_em_19-09-2025.xlsx")
-dados2024 <- read_excel("P:/SUPERINTENDÊNCIA ADMINISTRATIVA/SAPOFC/SERGIO/3.Planilhas_Excel/3.extract/despesa_empenhado_liquidado_pago_2024_siafe_gerado_em_19-09-2025.xlsx")
-dados2025 <- read_excel("P:/SUPERINTENDÊNCIA ADMINISTRATIVA/SAPOFC/SERGIO/3.Planilhas_Excel/3.extract/despesa_empenhado_liquidado_pago_2025_siafe_gerado_em_15-01-2026.xlsx")
+dados2022 <- read_excel("path")
+dados2023 <- read_excel("path")
+dados2024 <- read_excel("path")
+dados2025 <- read_excel("path")
 
 arquivos <- list.files(
   path = "P:/SUPERINTENDÊNCIA ADMINISTRATIVA/SAPOFC/SERGIO/3.Planilhas_Excel/3.extract",
@@ -57,7 +57,7 @@ dados_consolidados <- arquivos %>%
 
 write_xlsx(
   dados_consolidados,
-  "P:/SUPERINTENDÊNCIA ADMINISTRATIVA/SAPOFC/SERGIO/3.Planilhas_Excel/3.extract/despesa_empenhado_liquidado_pago.xlsx"
+  "path/despesa_empenhado_liquidado_pago.xlsx"
 )
 
 
