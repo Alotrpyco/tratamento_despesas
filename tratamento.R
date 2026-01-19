@@ -62,10 +62,5 @@ write_xlsx(
 )
 
 
-glimpse(dados2022)
-names(dados2021)
-names(dados2022)
-names(dados2023)
-names(dados2024)
-names(dados2025)
+glimpse(dados_consolidados)
 names(dados_consolidados)
