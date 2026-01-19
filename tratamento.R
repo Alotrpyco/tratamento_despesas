@@ -12,39 +12,40 @@ library(writexl)
 library(readxl)
 library(stringr)
 
+
 getwd()
-setwd("caminho")
+setwd()
+
 tratar_mes <- function(df) {
+  
+  if (!"num_mes" %in% names(df)) {
+    return(df)
+  }
+  
   df %>%
     mutate(
-      mes_num = str_extract(as.character(mes),"\\d{1,2}"),
-      mes_num = as.integer(mes_num),
-      mes = case_when(mes_num == 1 ~ "Janeiro",
-                      mes_num == 2 ~ "Fevereiro",
-                      mes_num == 3 ~ "Março",
-                      mes_num == 4 ~ "Abril",
-                      mes_num == 5 ~ "Maio",
-                      mes_num == 6 ~ "Junho",
-                      mes_num == 7 ~ "Julho",
-                      mes_num == 8 ~ "Agosto",
-                      mes_num == 9 ~ "Setembro",
-                      mes_num == 10 ~ "Outubro",
-                      mes_num == 11 ~ "Novembro",
-                      mes_num == 12 ~ "Dezembro",
-                      TRUE ~ NA_character_
-                      )
+      mes = case_when(
+        num_mes == 1  ~ "Janeiro",
+        num_mes == 2  ~ "Fevereiro",
+        num_mes == 3  ~ "Março",
+        num_mes == 4  ~ "Abril",
+        num_mes == 5  ~ "Maio",
+        num_mes == 6  ~ "Junho",
+        num_mes == 7  ~ "Julho",
+        num_mes == 8  ~ "Agosto",
+        num_mes == 9  ~ "Setembro",
+        num_mes == 10 ~ "Outubro",
+        num_mes == 11 ~ "Novembro",
+        num_mes == 12 ~ "Dezembro",
+        TRUE ~ NA_character_
+      )
     ) %>%
-    select(-mes_num)
+    select(-any_of(c("num_mes", "num_exercicio")))
 }
 
 
-dados2022 <- read_excel("caminho/.arquivo")
-dados2023 <- read_excel("caminho/.arquivo")
-dados2024 <- read_excel("caminho/.arquivo")
-dados2025 <- read_excel("caminho/.arquivo")
-
 arquivos <- list.files(
-  path = "caminho",
+  path = "P:/SUPERINTENDÊNCIA ADMINISTRATIVA/SAPOFC/SERGIO/3.Planilhas_Excel/3.tratamentos",
   pattern = "\\.xlsx$",
   full.names = TRUE
 )
@@ -57,11 +58,12 @@ dados_consolidados <- arquivos %>%
 
 write_xlsx(
   dados_consolidados,
-  "caminho/despesa_empenhado_liquidado_pago.xlsx"
+  "P:/SUPERINTENDÊNCIA ADMINISTRATIVA/SAPOFC/SERGIO/3.Planilhas_Excel/3.tratamentos/consolidadas/despesa_empenhado_liquidado_pago.xlsx"
 )
 
 
 glimpse(dados2022)
+names(dados2021)
 names(dados2022)
 names(dados2023)
 names(dados2024)
